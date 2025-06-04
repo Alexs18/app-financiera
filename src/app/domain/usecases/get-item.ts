@@ -1,13 +1,13 @@
 import { Observable } from "rxjs";
 import { ModelTransacciones } from "../models/transacciones";
 import { TransaccionesRepository } from "../repositories/transacciones";
+import { GetAllItemsEntity } from "src/app/data/repositories/entyties/transacciones.entyti";
 
 export class GetItemuseCase{
      constructor(private _transaccionesrepo: TransaccionesRepository){
     
         }
-        execute():Observable<ModelTransacciones>{
-            console.log('vemos que si se ejecuta....');
+        execute():Observable<GetAllItemsEntity>{
             return this._transaccionesrepo.getItem();
         }
 }

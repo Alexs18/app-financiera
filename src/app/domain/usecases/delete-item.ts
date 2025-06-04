@@ -1,12 +1,12 @@
 import { Observable } from "rxjs";
-import { ModelTransacciones } from "../models/transacciones";
+import { ResponseTransaccion, ModelTransacciones } from "../models/transacciones";
 import { TransaccionesRepository } from "../repositories/transacciones";
 
-export class DeleteItem {
+export class DeleteItemUseCase {
      constructor(private _transaccionesrepo: TransaccionesRepository){
     
         }
-        execute(params:{id:number}):Observable<ModelTransacciones>{
+        execute(params:{id:string | number}):Observable<ResponseTransaccion>{
             return this._transaccionesrepo.deleteItem(params);
         }
 }
