@@ -72,7 +72,8 @@
               "browserTarget": "app-financiera:build:production"
             },
             "development": {
-              "browserTarget": "app-financiera:build:development"
+              "browserTarget": "app-financiera:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
