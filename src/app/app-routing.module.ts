@@ -4,7 +4,7 @@ import { TransaccionesComponent } from './application/transacciones/transaccione
 
 const routes: Routes = [
   {
-    path:'init',
+    path:'',
     component:TransaccionesComponent,
 
   }
