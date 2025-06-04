@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { TransaccionesRepository } from "../repositories/transacciones";
 import { ModelTransacciones } from "../models/transacciones";
 
-export class GetOneItem {
+export class GetOneItemuseCase {
      constructor(private _transaccionesrepo: TransaccionesRepository){
     
         }
