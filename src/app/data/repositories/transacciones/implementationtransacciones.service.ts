@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { TransaccionesRepository } from 'src/app/domain/repositories/transacciones';
 import { Observable } from 'rxjs';
-import { ModelTransacciones } from 'src/app/domain/models/transacciones';
+import { CreatedTransaccion, ResponseTransaccion, ModelTransacciones, ModelTransaccionesUpdate } from 'src/app/domain/models/transacciones';
+import { GetAllItemsEntity } from '../entyties/transacciones.entyti';
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,23 @@ export class ImplementationtransaccionesService extends TransaccionesRepository 
   ) { 
     super()
   }
-  getItem(): Observable<ModelTransacciones> {
-    return this._http.get<ModelTransacciones>(`/bp/products`);
+  getItem(): Observable<GetAllItemsEntity> {
+    return this._http.get<GetAllItemsEntity>(`/bp/products`);
   }
   getOneItem(params: { id: number; }): Observable<ModelTransacciones> {
     return this._http
     .put<ModelTransacciones>(``,params);
   }
-  createItem(params: ModelTransacciones): Observable<ModelTransacciones> {
+  createItem(params: ModelTransacciones): Observable<CreatedTransaccion> {
     return this._http
-    .post<ModelTransacciones>(``,params);
+    .post<CreatedTransaccion>(`/bp/products`,params);
   }
-  override deleteItem(params: { id: number; }): Observable<ModelTransacciones> {
+  override deleteItem(params: { id: number; }): Observable<ResponseTransaccion> {
     return this._http
-    .post<ModelTransacciones>(``,params);
+    .delete<ResponseTransaccion>(`/bp/products/${params.id}`);
   }
-  override updateOneItem(params: { id: number; }): Observable<ModelTransacciones> {
+  override updateOneItem(params: { id: number, data:ModelTransaccionesUpdate }): Observable<ResponseTransaccion> {
     return this._http
-    .post<ModelTransacciones>(``,params);
+    .put<ResponseTransaccion>(`/bp/products/${params.id}`,params);
   }
 }
